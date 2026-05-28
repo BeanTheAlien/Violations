@@ -4,7 +4,7 @@ Loot.__index = Loot
 setmetatable(Loot, Base)
 export type Loot = Base.Base & {
 	val: number,
-mesh: MeshPart
+	mesh: MeshPart
 }
 function Loot.new(name: string, val: number, mesh: MeshPart): Loot
     local this = setmetatable(Base.new(name), Loot)
