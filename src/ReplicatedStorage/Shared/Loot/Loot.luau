@@ -1,4 +1,4 @@
-local Base = require(script.Parent.Base)
+local Base = require(script.Parent.Parent.Base)
 local Loot = {}
 Loot.__index = Loot
 setmetatable(Loot, Base)

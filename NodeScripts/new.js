@@ -1,8 +1,8 @@
 const fs = require("fs");
-const [,, name, extend = "Base", props = "{\n\t--\n}", argListGeneric = null, useOnlyName = "false"] = process.argv;
+const [,, name, tgPath = "", extend = "Base", props = "{\n\t--\n}", argListGeneric = null, useOnlyName = "false"] = process.argv;
 const argList = "name: string" + (argListGeneric != null ? ", " + argListGeneric : "");
 const argProp = argList.split(",").map(x => x.trim()).map(x => x.split(":")[0]);
-fs.writeFileSync(`src\\ReplicatedStorage\\Modules\\Shared\\${name}.luau`, `local ${extend} = require(script.Parent.${extend})
+fs.writeFileSync(`..\\src\\ReplicatedStorage\\Shared\\${tgPath}${name}.luau`, `local ${extend} = require(script.Parent.${"Parent.".repeat(tgPath.split("/").length - 1)}${extend})
 local ${name} = {}
 ${name}.__index = ${name}
 setmetatable(${name}, ${extend})
